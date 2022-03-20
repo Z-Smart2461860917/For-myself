@@ -1,0 +1,43 @@
+vector<int> insertionSort(vector<int> &arr)
+{
+	for (int i = 1; i < arr.size(); i++)
+	{
+		int position = i;
+		int temp = arr[i];
+		for (int j = i - 1; j>-1; j--)
+		{
+			if (arr[j] > temp && position>0)
+			{
+				arr[position] = arr[j];
+				position--;
+			}
+		}
+		arr[position] = temp;
+	}
+	return arr;
+}
+
+int main()
+{
+	vector<int> arr1{ 9,8,7,6,5,4,3,2,1 };
+	insertionSort(arr1);
+	for (auto c : arr1)
+		cout << c << " ";
+	cout << endl;
+	return 0;
+}
+
+//原理图：
+
+
+
+
+
+
+
+
+
+
+
+
+
