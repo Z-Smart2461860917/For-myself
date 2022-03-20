@@ -1,0 +1,30 @@
+//选择排序
+vector<int> selectionSort(vector<int>& arr)
+{
+	for (size_t i = 0; i < arr.size(); i++)
+	{
+		size_t LowestNumberIndex = i;//记录第一个值为最小值，记录下标
+		for (size_t j = i + 1; j < arr.size(); j++)
+		{
+			if (arr[LowestNumberIndex] > arr[j])
+				LowestNumberIndex = j;//找到了其中最小值，记录真正的最小值下标
+		}
+		if (LowestNumberIndex != i)
+			swap(arr[i], arr[LowestNumberIndex]);
+	}
+	return arr;
+}
+
+int main()
+{
+	vector<int> arr1{ 9,8,7,6,5,4,3,2,1 };
+	selectionSort(arr1);
+	for (auto c : arr1)
+		cout << c << " ";
+	cout << endl;
+	return 0;
+}
+
+//原理：
+从第一个元素开始，拿出第一个元素和其余元素挨个比值，遍历完整个数组后与最小值交换位置，若本身为最小值则不用交换；
+下一轮从下标1，也就是第二个元素开始重复上轮操作直至完成所有元素排列
