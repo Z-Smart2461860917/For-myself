@@ -1,0 +1,27 @@
+void swap(int& a, int& b)
+{
+	int tem = a;
+	a = b;
+	b = tem;
+}
+int main()
+{
+	vector<int> v1{ 99,88,87,85,86,44,22,33,14,12,1 };
+	int i = 0;
+	while (i < v1.size()-1)
+	{
+		for (size_t j = 0; j < v1.size() - 1-i; j++)
+		{
+			if (v1[j] > v1[j + 1])
+				swap(v1[j], v1[j + 1]);
+		}
+		for (auto s : v1)
+			cout << s << "  ";
+		cout << endl;
+		++i;
+	}
+	for (auto s : v1)
+		cout << s << "  ";
+	cout<<endl;
+	return 0;
+}
