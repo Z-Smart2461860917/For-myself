@@ -1,0 +1,16 @@
+int singleNumber(vector<int>& nums) {
+    int tmp = 0;
+    for (size_t i = 0; i < nums.size(); i++)
+        tmp ^= nums[i];
+    return tmp;
+}
+
+int main()
+{
+    vector<int>nums{ 2,2,1 ,1,3};
+    cout << singleNumber(nums) << endl;
+	return 0;
+    
+}
+
+//巧妙利用位运算特点，位运算是最快的运算符
