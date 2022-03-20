@@ -1,0 +1,28 @@
+int numSearch(vector<int>& arr, int target)
+{
+	int left = 0, right = arr.size() - 1;
+	while (left <= right)//闭区间则是<=,开区间变成<
+	{
+		int mid = left + ((right - left) >> 1);//和(left+right)/2结果相同，但是有效防止了left和right太大相加导致溢出
+		if (arr[mid] == target)
+			return mid;
+		else if (arr[mid] > target)
+			right = mid - 1;//此时搜索区间变为[left,mid-1]
+		else if (arr[mid] < target)
+			left = mid + 1;//此时搜索区间变为[mid+1,right]
+	}
+	return -1;
+}
+
+
+int main()
+{
+	vector<int>arr{ 1,2,3,4,5,6,7 };
+	int target = 5;
+	cout << numSearch(arr, target) << endl;
+	
+	return 0;
+	
+}
+
+//关键就是中间数和区间
